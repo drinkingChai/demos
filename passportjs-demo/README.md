@@ -1,6 +1,6 @@
 ### PassportJS Demo
 
-1. Clone/Download the repo
+1. Clone/download the repo
 2. Run `npm install`
 3. Add your own `env.json` file to the root directory with Google auth keys. Should look like this:
   ```
