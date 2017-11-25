@@ -1,13 +1,12 @@
 const router = require('express').Router(),
   passport = require('passport'),
-  GoogleStrategy = require('passport-google-oauth').OAuth2Strategy,
-  env = require('../env')
+  GoogleStrategy = require('passport-google-oauth').OAuth2Strategy
 
 passport.use(
   // configuration passport will use to authenticate
   new GoogleStrategy({
-    clientID: env.GOOGLE_CLIENT_ID,
-    clientSecret: env.GOOGLE_CLIENT_SECRET,
+    clientID: process.env.GOOGLE_CLIENT_ID || require('../env').GOOGLE_CLIENT_ID,
+    clientSecret: process.env.GOOGLE_CLIENT_SECRET || require('../env').GOOGLE_CLIENT_SECRET,
     callbackURL: 'http://localhost:8000/auth/google/verify'
   },
   (accessToken, refreshToken, profile, done) => {
